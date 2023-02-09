@@ -26,13 +26,16 @@ class ArrayQueue<T> implements IQueue<T> {
 
 }
 
-const queue1 = new ArrayQueue<string>()
-queue1.enqueue('aa')
-queue1.enqueue('bb')
-console.log(queue1.dequeue());
-console.log(queue1.isEmpty());
-console.log(queue1.size());
-console.log(queue1.peek());
+// const queue1 = new ArrayQueue<string>()
+// queue1.enqueue('aa')
+// queue1.enqueue('bb')
+// console.log(queue1.dequeue());
+// console.log(queue1.isEmpty());
+// console.log(queue1.size());
+// console.log(queue1.peek());
+
+
+export default ArrayQueue
 
 
 
