@@ -41,6 +41,34 @@ class LinkedList<T> {
     }
     console.log(values.join("->"));
   }
+  // 插入方法: abc
+  insert(value: T, position: number): boolean {
+    // 1.越界的判断
+    if (position < 0 || position > this.size) return false;
+
+    // 2.根据value创建新的节点
+    const newNode = new Node(value);
+
+    // 3.判断是否需要插入头部
+    if (position === 0) {
+      newNode.next = this.head;
+      this.head = newNode;
+    } else {
+      let current = this.head;
+      let previous: Node<T> | null = null;
+      let index = 0;
+      while (index++ < position && current) {
+        previous = current;
+        current = current.next;
+      }
+      // index === position
+      newNode.next = current;
+      previous!.next = newNode;
+    }
+    this.size++;
+
+    return true;
+  }
 }
 
 const linkedList = new LinkedList<string>();
@@ -50,4 +78,9 @@ linkedList.append("ccc");
 linkedList.append("ddd");
 
 linkedList.traverse();
+console.log("```````````````````````插入");
+
+linkedList.insert("abc", 1);
+linkedList.traverse();
+
 export {};
